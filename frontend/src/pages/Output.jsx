@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import Particles from '@/components/Particles';
 import Footer from '../components/Footer';
 
@@ -85,10 +84,7 @@ const Output = ({ data }) => {
                 >
                   <span className="capitalize">{tab}</span>
                   {activeTab === tab && (
-                    <motion.div 
-                      layoutId="activeTab"
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-teal-400"
-                    />
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-teal-400" />
                   )}
                 </button>
              ))}
@@ -110,11 +106,8 @@ const Output = ({ data }) => {
           {activeTab === 'timeline' ? (
             <div className="relative border-l-2 border-gray-800 ml-4 md:ml-12 space-y-12 pb-20">
               {timeline.map((item, index) => (
-                <motion.div 
+                <div 
                   key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05 }}
                   className="relative pl-8 md:pl-12"
                 >
                   <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gray-900 border-2 border-gray-600 group-hover:border-teal-400 transition-colors z-10 box-content" />
@@ -162,18 +155,15 @@ const Output = ({ data }) => {
                       )}
                     </div>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {insertions.length > 0 ? (
                 insertions.map((ins, index) => (
-                  <motion.div 
+                  <div 
                     key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.05 }}
                     className="group relative p-6 rounded-2xl bg-white/5 border border-white/5 hover:border-orange-500/30 transition-all duration-300 hover:bg-white/10"
                   >
                     <div className="flex justify-between items-start mb-4">
@@ -199,7 +189,7 @@ const Output = ({ data }) => {
                          <p className="text-lg font-mono text-orange-400">{(ins.confidence * 100).toFixed(0)}%</p>
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 ))
               ) : (
                 <div className="col-span-full py-20 text-center text-white/30 italic font-instrument text-2xl">
